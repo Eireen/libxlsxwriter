@@ -1,6 +1,6 @@
 %module xlsxwriter
 %{
-#include "../include/xlsxwriter.h"
+#include "../../../include/xlsxwriter.h"
 %}
 
 %include "interface/third_party/queue.i"
