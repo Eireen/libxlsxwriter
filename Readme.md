@@ -77,3 +77,39 @@ int main() {
 See the [full documentation](http://libxlsxwriter.github.io) for the getting
 started guide, a tutorial, the main API documentation and examples.
 
+## Using in another languages
+
+### PHP
+
+1. Generate PHP wrapper by [SWIG](http://www.swig.org):
+
+```sh
+./swig/build.sh
+```
+
+Files `xlsxwriter.so` and `xlsxwriter.php` should appear in `swig/output/php` directory.
+
+2. Load the extension through the INI file. For example, in Ubuntu 14.04:
+
+```sh
+# Create a separate config file for the new extension
+sudo nano /etc/php5/mods-available/xlsxwriter.ini
+
+# Add the line
+# extension=/path/to/xlsxwriter.so
+
+# Enable the extension
+sudo php5enmod xlsxwriter
+
+# Restart apache/php-fpm
+sudo service php5-fpm restart
+
+```
+
+3. In your scripts:
+
+```php
+include("xlsxwriter.php");
+```
+
+See `swig/example.php`
